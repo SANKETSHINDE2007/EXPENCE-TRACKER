@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Login — Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    if (localStorage.getItem("loggedInUser")) {
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <h2>Log in</h2>
+      <input id="loginEmail" type="email" placeholder="Email" />
+      <input id="loginPass" type="password" placeholder="Password" />
+      <button class="primary" id="loginBtn">Login</button>
+
+      <p style="margin-top:12px">
+        <a href="signup.html" style="color:#00c6ff">Create account</a> •
+        <a href="#" id="forgotLink" style="color:#ffcc66">Forgot password?</a>
+      </p>
+
+      <div id="loginMsg" style="margin-top:8px; color:#ffcc66; font-size:0.95rem"></div>
+    </div>
+  </div>
+
+  <div class="watermark">Made by Sanket Shinde & Prachi Ughade | SYBBA-CA</div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Expense Tracker — Home</title>
+
+  <script>
+    // This quick-check prevents anonymous access while the Firebase check loads.
+    if (!localStorage.getItem("loggedInUser")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <button class="profile-btn" id="profileBtn">Profile ▾</button>
+    <div class="profile-menu" id="profileMenu">
+      <h4 id="profileName">User</h4>
+      <div id="profileEmail" style="font-size:0.9rem;color:#ddd"></div>
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.06); margin:10px 0">
+      <button class="logout" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <h2 id="welcome" style="margin-top:58px;text-align:center;"></h2>
+
+  <div class="container">
+    <div class="panel left">
+      <h3>Add Transaction</h3>
+      <form id="form">
+        <input id="text" type="text" placeholder="Description (e.g., Grocery)" required />
+        <input id="amount" type="number" placeholder="Amount (negative = expense)" required />
+        <button class="primary" type="submit">Add Transaction</button>
+      </form>
+    </div>
+
+    <div class="panel middle">
+      <h3>Your Balance</h3>
+      <div class="big" id="balance">₹0.00</div>
+      <div style="display:flex; gap:12px; margin-top:12px">
+        <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px">
+          <div style="font-size:0.85rem">Income</div>
+          <div id="money-plus" style="font-weight:700; margin-top:6px">₹0.00</div>
+        </div>
+        <div style="flex:1; background:rgba(255,255,255,0.03); padding:10px; border-radius:8px">
+          <div style="font-size:0.85rem">Expense</div>
+          <div id="money-minus" style="font-weight:700; margin-top:6px">₹0.00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel right">
+      <h3>Transaction History</h3>
+      <ul id="list" class="list"></ul>
+    </div>
+  </div>
+
+  <div class="watermark">Made by Sanket Shinde & Prachi Ughade | SYBBA-CA</div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
